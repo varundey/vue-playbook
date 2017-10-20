@@ -1,0 +1,32 @@
+<div id="app">
+	<form action="submit.html" v-on:submit.prevent="eventHandler">
+		<!-- .prevent stops the event propagation, thus preventing it from loading submit.html -->
+
+		<div class="error" v-show="!message">{{error_message}}</div>
+		<!-- Can also use v-if directive. This however being simple CSS toggle,
+			v-show is preferred -->
+
+		<textarea v-model="message"></textarea>
+	
+		<button type="submit" v-on:click="clickEvent" v-show="message">Submit</button>
+	</form>
+</div>
+
+<script type="text/javascript" src="https://unpkg.com/vue"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			error_message: 'Please enter a message to submit',
+			message: ''
+		},
+		methods: {
+			clickEvent: function(){
+				alert(this.message)
+			},
+			eventHandler: function(){
+				alert('Successfully received the message')
+			}
+		}
+	})
+</script>
