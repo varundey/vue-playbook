@@ -1,0 +1,34 @@
+<div id="app">
+	<div>
+		{{ message }}
+	</div>
+	
+	<div>
+		Enter your name: <input v-model="name">
+	</div>
+
+	<div>
+		Hi {{ name }}, Nice to meet you
+	</div>
+
+	<button v-on:click="incrementCounter">Times clicked: {{counter}}</button>
+
+</div>
+
+
+<script type="text/javascript" src="https://unpkg.com/vue"></script>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			message: "Everything is reactive in this page",
+			name: 'Guest',
+			counter: 0,
+		},
+		methods: {
+			incrementCounter: function(){
+				this.counter += 1
+			}
+		}
+	})
+</script>
